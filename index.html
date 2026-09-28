@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devkrupa Print Portal</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+header{background:#123b7a;color:white;padding:22px 18px;text-align:center}
+header h1{margin:0;font-size:30px}header p{margin:7px 0 0}
+.hero{padding:35px 18px;text-align:center;background:white}.hero h2{font-size:28px;margin:5px}
+.hero p{color:#555;line-height:1.6}
+.btn{display:inline-block;padding:13px 20px;border-radius:9px;text-decoration:none;font-weight:bold;margin:7px}
+.whatsapp{background:#18a957;color:#fff}.primary{background:#123b7a;color:#fff}
+.container{max-width:950px;margin:auto;padding:22px 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
+.card{background:#fff;padding:20px;border-radius:14px;box-shadow:0 3px 14px #00000012;text-align:center}
+.card .icon{font-size:34px}.card h3{margin:10px 0 5px}.card p{color:#666;font-size:14px}
+form{background:white;padding:22px;border-radius:14px;box-shadow:0 3px 14px #00000012}
+label{display:block;margin:13px 0 6px;font-weight:bold}input,select,textarea{width:100%;padding:12px;border:1px solid #ccd3df;border-radius:8px;font-size:15px}
+button{border:0;cursor:pointer}
+.note{background:#fff7df;border-left:4px solid #e2a400;padding:12px;margin:15px 0;line-height:1.5}
+footer{margin-top:30px;background:#172033;color:white;text-align:center;padding:22px}
+.small{font-size:13px;color:#666}
+</style>
+</head>
+<body>
+<header>
+  <h1>Devkrupa</h1>
+  <p>Print • Photo • Document Services</p>
+</header>
+
+<section class="hero">
+  <h2>Devkrupa Print Portal</h2>
+  <p>फोटो, डॉक्युमेंट प्रिंट, स्कॅन, झेरॉक्स आणि विविध दस्तऐवज सेवा.</p>
+  <a class="btn whatsapp" href="https://wa.me/917276721675" target="_blank">📱 WhatsApp वर ऑर्डर करा</a>
+  <a class="btn primary" href="#order">🖨️ Print Order</a>
+</section>
+
+<section class="container">
+<h2>आमच्या सेवा</h2>
+<div class="grid">
+  <div class="card"><div class="icon">🪪</div><h3>Aadhaar Services</h3><p>अधिकृत प्रक्रियेनुसार प्रिंट/डॉक्युमेंट सेवा.</p></div>
+  <div class="card"><div class="icon">💳</div><h3>PAN Services</h3><p>PAN संबंधित प्रिंट व दस्तऐवज सेवा.</p></div>
+  <div class="card"><div class="icon">🚗</div><h3>RC Book</h3><p>RC संबंधित प्रिंट/कॉपी सेवा.</p></div>
+  <div class="card"><div class="icon">📸</div><h3>Photo</h3><p>Passport फोटो आणि फोटो प्रिंट.</p></div>
+  <div class="card"><div class="icon">🖨️</div><h3>Print / Xerox</h3><p>Color आणि B&W प्रिंट, Xerox आणि स्कॅन.</p></div>
+  <div class="card"><div class="icon">📄</div><h3>Document Upload</h3><p>ऑर्डरसोबत आवश्यक फाइल पाठवण्याची सुविधा.</p></div>
+</div>
+</section>
+
+<section class="container" id="order">
+<h2>Print Order Request</h2>
+<div class="note">कृपया फक्त आवश्यक कागदपत्रे आणि ग्राहकाच्या संमतीनेच अपलोड करा. Aadhaar/PAN सारखी संवेदनशील माहिती अनावश्यकपणे साठवू नका.</div>
+<form id="orderForm">
+<label>ग्राहकाचे नाव</label>
+<input id="name" required placeholder="तुमचे नाव">
+
+<label>मोबाइल नंबर</label>
+<input id="phone" required type="tel" placeholder="मोबाइल नंबर">
+
+<label>सेवा</label>
+<select id="service">
+<option>Photo Print</option><option>Color Print</option><option>B&W Print</option>
+<option>Scan / Xerox</option><option>Aadhaar Print Service</option>
+<option>PAN Print Service</option><option>RC Book Print Service</option>
+</select>
+
+<label>Copies</label>
+<input id="copies" type="number" min="1" value="1">
+
+<label>अतिरिक्त माहिती</label>
+<textarea id="message" rows="4" placeholder="Size, pages, paper type इ."></textarea>
+
+<label>फाइल</label>
+<input id="file" type="file" accept=".pdf,.jpg,.jpeg,.png" multiple>
+<p class="small">टीप: हा डेमो फॉर्म फाइल थेट वेबसाइटवर अपलोड करत नाही; तो WhatsApp ऑर्डर तयार करतो. वास्तविक सुरक्षित file-upload server नंतर जोडता येईल.</p>
+
+<button class="btn whatsapp" type="submit">WhatsApp वर ऑर्डर पाठवा</button>
+</form>
+</section>
+
+<footer>
+<strong>Devkrupa</strong><br>
+WhatsApp: 7276721675
+</footer>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e){
+ e.preventDefault();
+ const name=document.getElementById("name").value.trim();
+ const phone=document.getElementById("phone").value.trim();
+ const service=document.getElementById("service").value;
+ const copies=document.getElementById("copies").value;
+ const msg=document.getElementById("message").value.trim();
+ const file=document.getElementById("file").files;
+ let files = file.length ? Array.from(file).map(f=>f.name).join(", ") : "फाइल नाही";
+ const text =
+ `Devkrupa Print Order%0A%0A`+
+ `नाव: ${encodeURIComponent(name)}%0A`+
+ `मोबाइल: ${encodeURIComponent(phone)}%0A`+
+ `सेवा: ${encodeURIComponent(service)}%0A`+
+ `Copies: ${encodeURIComponent(copies)}%0A`+
+ `फाइल: ${encodeURIComponent(files)}%0A`+
+ `माहिती: ${encodeURIComponent(msg)}`;
+ window.open("https://wa.me/917276721675?text="+text,"_blank");
+});
+</script>
+</body>
+</html>
